@@ -12,5 +12,5 @@
 #  user_id               :integer
 #
 class Tracker < ApplicationRecord
-  belong_to(:user)
+  belongs_to(:user)
 end

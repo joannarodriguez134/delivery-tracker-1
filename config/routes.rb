@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # Routes for the Tracker resource:
 
-  get("/", { :controller => "trackers", :action => "index" })
+  # get("/", { :controller => "trackers", :action => "index" })
+  root to: "trackers#index"
 
   # CREATE
   post("/insert_tracker", { :controller => "trackers", :action => "create" })
