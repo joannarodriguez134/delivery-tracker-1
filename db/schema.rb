@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_20_172546) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_20_180204) do
   create_table "trackers", force: :cascade do |t|
     t.integer "user_id"
     t.boolean "delivery_status"
