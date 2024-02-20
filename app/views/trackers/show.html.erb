@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Tracker #<%= @the_tracker.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/trackers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_tracker/<%= @the_tracker.id %>">
+          Delete tracker
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_tracker.user_id %>
+      </dd>
+
+      <dt>
+        Delivery status
+      </dt>
+      <dd>
+        <%= @the_tracker.delivery_status %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_tracker.description %>
+      </dd>
+
+      <dt>
+        Supposed to arrive on
+      </dt>
+      <dd>
+        <%= @the_tracker.supposed_to_arrive_on %>
+      </dd>
+
+      <dt>
+        Details
+      </dt>
+      <dd>
+        <%= @the_tracker.details %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_tracker.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_tracker.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit tracker
+    </h2>
+
+    <form action="/modify_tracker/<%= @the_tracker.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_tracker.user_id %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="delivery_status_box" name="query_delivery_status" value="1" <%= "checked" if @the_tracker.delivery_status %>>
+
+        <label for="delivery_status_box">
+            Delivery status
+        </label>
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_tracker.description %>">
+      </div>
+
+      <div>
+        <label for="supposed_to_arrive_on_box">
+          Supposed to arrive on
+        </label>
+
+        <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on" value="<%= @the_tracker.supposed_to_arrive_on %>">
+      </div>
+
+      <div>
+        <label for="details_box">
+          Details
+        </label>
+
+        <textarea id="details_box" name="query_details"><%= @the_tracker.details %></textarea>
+      </div>
+
+      <button>
+        Update tracker
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
