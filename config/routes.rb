@@ -1,42 +1,31 @@
 Rails.application.routes.draw do
-  # Routes for the Tracker resource:
-
-  # get("/", { :controller => "trackers", :action => "index" })
-  root to: "trackers#index"
+  devise_for :users
+  # Routes for the Delivery resource:
 
   # CREATE
-  post("/insert_tracker", { :controller => "trackers", :action => "create" })
+
+  root to: "deliveries#index"
+  
+  post("/insert_delivery", { :controller => "deliveries", :action => "create" })
           
   # READ
-  get("/trackers", { :controller => "trackers", :action => "index" })
+  get("/deliveries", { :controller => "deliveries", :action => "index" })
   
-  get("/trackers/:path_id", { :controller => "trackers", :action => "show" })
+  get("/deliveries/:path_id", { :controller => "deliveries", :action => "show" })
   
   # UPDATE
   
-  post("/modify_tracker/:path_id", { :controller => "trackers", :action => "update" })
+  post("/modify_delivery/:path_id", { :controller => "deliveries", :action => "update" })
   
   # DELETE
-  get("/delete_tracker/:path_id", { :controller => "trackers", :action => "destroy" })
+  get("/delete_delivery/:path_id", { :controller => "deliveries", :action => "destroy" })
 
   #------------------------------
 
-  # Routes for the User resource:
+  # Routes for the Tracker resource:
 
-  # CREATE
-  post("/insert_user", { :controller => "users", :action => "create" })
-          
-  # READ
-  get("/users", { :controller => "users", :action => "index" })
-  
-  get("/users/:path_id", { :controller => "users", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_user/:path_id", { :controller => "users", :action => "update" })
-  
-  # DELETE
-  get("/delete_user/:path_id", { :controller => "users", :action => "destroy" })
+  # get("/", { :controller => "trackers", :action => "index" })
+
 
   #------------------------------
 
