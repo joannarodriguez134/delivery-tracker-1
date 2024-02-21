@@ -44,6 +44,7 @@ class DeliveriesController < ApplicationController
     @delivery = Delivery.where(id: the_delivery)
 
     # update the arrive the method
+    @delivery = @delivery.first # This extracts the first record from the relation
     @delivery.arrived = true
 
 

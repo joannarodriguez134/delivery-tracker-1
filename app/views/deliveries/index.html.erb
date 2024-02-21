@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Delivery Tracker <%= current_user.id %>
+      Delivery Tracker
     </h1>
     <p> Know if something gets lost in the mail. </p>
   </div>
@@ -67,6 +67,28 @@
       <% end %>
     </ul>
 </div>
+
+
 <hr>
 
+<!---->
+<div class="received">
+  <h2> Received </h2>
+    <ul>
+    <% @delivered.each do |a_delivered_package| %>
+      <li>
+        <div>
+          <%= a_delivered_package.description %>
+          <div>
+          <small>
+            Updated <%= time_ago_in_words(a_delivered_package.updated_at) %>
 
+            <a href="/delete_delivery/<%= a_delivered_package.id %>">Delete</a>
+          </small>
+        </div>
+        </div> 
+      </li>
+      <% end %>
+    <ul>
+</div>
+<!---->
